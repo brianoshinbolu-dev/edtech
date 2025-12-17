@@ -23,7 +23,7 @@ export function TopNav() {
         </div>
 
         {/* Navigation Links */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 md:flex ml-auto">
           <Button variant="ghost" size="sm" asChild>
             <Link href="/" className="flex flex-col items-center gap-1">
               <Home className="size-5" />
