@@ -2,36 +2,34 @@
 
 import { useState } from "react"
 import { TopNav } from "@/components/navigation/top-nav"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { Clock, Star, Users, Award, BookOpen, PlayCircle, GraduationCap, LayoutDashboard } from "lucide-react"
+import { Star, LayoutDashboard, GraduationCap, Search, MapPin, Filter, Loader2 } from "lucide-react"
 import { CourseAdminDashboard } from "@/components/learning/course-admin-dashboard"
 import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import Link from "next/link"
+import { useCourses } from "@/hooks/use-courses"
 
 export default function LearningPage() {
   const [isInstructorView, setIsInstructorView] = useState(false)
+  const { courses, isLoading } = useCourses()
 
   return (
     <div className="min-h-screen bg-muted/30">
       <TopNav />
 
       <main className="mx-auto max-w-screen-xl px-4 py-6">
-        {/* Header */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="font-sans text-3xl font-bold">
-              {isInstructorView ? "Instructor Portal" : "My Learning"}
-            </h1>
-            <p className="mt-2 text-muted-foreground">
-              {isInstructorView
-                ? "Manage your courses and analyze performance"
-                : "Continue your journey and explore new courses"}
-            </p>
-          </div>
-
+        {/* Header Toggle */}
+        <div className="mb-6 flex justify-end">
           <div className="flex items-center space-x-2 rounded-lg border bg-background p-2">
             <div className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${!isInstructorView ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}>
               <GraduationCap className="size-4" />
@@ -52,239 +50,129 @@ export default function LearningPage() {
         {isInstructorView ? (
           <CourseAdminDashboard />
         ) : (
-          <div className="grid gap-6 lg:grid-cols-12">
-            {/* Main Content */}
-            <div className="space-y-6 lg:col-span-8">
-              {/* In Progress */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-sans text-xl">
-                    <PlayCircle className="size-5 text-primary" />
-                    In Progress
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {[
-                    {
-                      title: "Advanced React Patterns",
-                      instructor: "Sarah Wilson",
-                      progress: 65,
-                      timeLeft: "2h 30m left",
-                    },
-                    {
-                      title: "System Design Fundamentals",
-                      instructor: "Michael Chen",
-                      progress: 42,
-                      timeLeft: "4h 15m left",
-                    },
-                  ].map((course, i) => (
-                    <Card key={i} className="border-2">
-                      <CardContent className="p-4">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <h3 className="font-sans text-base font-semibold">{course.title}</h3>
-                            <p className="text-sm text-muted-foreground">by {course.instructor}</p>
-                            <div className="mt-3 space-y-2">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="text-muted-foreground">{course.progress}% complete</span>
-                                <span className="text-muted-foreground">{course.timeLeft}</span>
-                              </div>
-                              <Progress value={course.progress} className="h-2" />
-                            </div>
-                          </div>
-                          <Button>Continue</Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </CardContent>
-              </Card>
+          <div className="space-y-12">
+            {/* Hero Section */}
+            <div className="relative h-[400px] w-full bg-muted overflow-hidden">
+              {/* Background Image Placeholder */}
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop')] bg-cover bg-center opacity-80">
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/10"></div>
+              </div>
 
-              {/* Recommended Courses */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-sans text-xl">Recommended for You</CardTitle>
-                  <CardDescription>Based on your interests and career goals</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {[
-                      {
-                        title: "AWS Solutions Architect",
-                        instructor: "James Rodriguez",
-                        rating: 4.8,
-                        students: 12450,
-                        duration: "8 hours",
-                        level: "Intermediate",
-                      },
-                      {
-                        title: "Product Management Mastery",
-                        instructor: "Emma Thompson",
-                        rating: 4.9,
-                        students: 8230,
-                        duration: "6 hours",
-                        level: "Advanced",
-                      },
-                      {
-                        title: "TypeScript Deep Dive",
-                        instructor: "David Park",
-                        rating: 4.7,
-                        students: 15680,
-                        duration: "5 hours",
-                        level: "Intermediate",
-                      },
-                      {
-                        title: "UI/UX Design Principles",
-                        instructor: "Lisa Anderson",
-                        rating: 4.9,
-                        students: 9870,
-                        duration: "7 hours",
-                        level: "Beginner",
-                      },
-                    ].map((course, i) => (
-                      <Card key={i} className="overflow-hidden transition-shadow hover:shadow-md">
-                        <div className="h-32 bg-primary/5" />
-                        <CardContent className="p-4">
-                          <h3 className="font-sans text-base font-semibold leading-tight">{course.title}</h3>
-                          <p className="mt-1 text-sm text-muted-foreground">by {course.instructor}</p>
-                          <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Star className="size-3 fill-primary text-primary" />
-                              {course.rating}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Users className="size-3" />
-                              {course.students.toLocaleString()}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="size-3" />
-                              {course.duration}
-                            </span>
+              {/* Floating Content Card */}
+              <div className="absolute top-12 left-4 md:left-12 lg:left-24 max-w-md bg-card p-6 shadow-lg rounded-lg border">
+                <h1 className="text-3xl font-bold font-serif mb-3 text-foreground">
+                  Learning that gets you
+                </h1>
+                <p className="text-base mb-5 text-muted-foreground">
+                  Skills for your present (and your future). Get started with us today.
+                </p>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="What do you want to learn?"
+                    className="w-full h-12 pl-4 pr-12 border rounded-md bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <button className="absolute right-0 top-0 h-12 w-12 bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 rounded-r-md">
+                    <Search className="size-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Trusted By Bar */}
+            <div className="bg-card py-6 border-y">
+              <div className="mx-auto max-w-screen-xl px-4 text-center">
+                <p className="text-sm font-semibold text-muted-foreground mb-4">Trusted by over 15,000 companies and millions of learners around the world</p>
+                <div className="flex flex-wrap justify-center gap-8 opacity-50 grayscale transition-all hover:grayscale-0">
+                  {/* Logos */}
+                  <div className="flex items-center gap-2 font-bold text-xl text-foreground"><div className="size-6 bg-blue-600 rounded-sm"></div> Volkwagen</div>
+                  <div className="flex items-center gap-2 font-bold text-xl text-foreground"><div className="size-6 bg-red-600 rounded-sm"></div> Samsung</div>
+                  <div className="flex items-center gap-2 font-bold text-xl text-foreground"><div className="size-6 bg-orange-600 rounded-sm"></div> Cisco</div>
+                  <div className="flex items-center gap-2 font-bold text-xl text-foreground"><div className="size-6 bg-blue-900 rounded-sm"></div> AT&T</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course Selection Section */}
+            <div className="px-4">
+              <h2 className="text-2xl font-bold text-foreground mb-2">A broad selection of courses</h2>
+              <p className="text-lg text-muted-foreground mb-6">Choose from 220,000 online video courses with new additions published every month</p>
+
+              {/* Tabs mimic */}
+              <div className="flex gap-4 border-b mb-6 overflow-x-auto pb-1">
+                <button className="text-sm font-bold text-foreground hover:text-primary whitespace-nowrap pb-2 border-b-2 border-foreground">Python</button>
+                <button className="text-sm font-bold text-muted-foreground hover:text-foreground whitespace-nowrap pb-2">Excel</button>
+                <button className="text-sm font-bold text-muted-foreground hover:text-foreground whitespace-nowrap pb-2">Web Development</button>
+                <button className="text-sm font-bold text-muted-foreground hover:text-foreground whitespace-nowrap pb-2">JavaScript</button>
+                <button className="text-sm font-bold text-muted-foreground hover:text-foreground whitespace-nowrap pb-2">Data Science</button>
+                <button className="text-sm font-bold text-muted-foreground hover:text-foreground whitespace-nowrap pb-2">AWS Certification</button>
+              </div>
+
+              {/* Course Carousel / Grid */}
+              {isLoading ? (
+                <div className="flex justify-center py-20">
+                  <Loader2 className="size-8 animate-spin text-primary" />
+                </div>
+              ) : (
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                  {courses.map((course) => (
+                    <Link href={`/learning/course/${course.id}`} key={course.id} className="block group">
+                      <Card className="overflow-hidden border-none shadow-sm hover:shadow-md transition-shadow cursor-pointer h-full bg-card">
+                        {/* Card Image */}
+                        <div className="h-40 bg-muted relative overflow-hidden">
+                          {/* Placeholder for thumbnail */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                          {/* In a real app, use next/image here */}
+                          <div className="flex h-full items-center justify-center bg-muted text-muted-foreground group-hover:scale-105 transition-transform duration-500">
+                            <GraduationCap className="size-10 opacity-20" />
                           </div>
-                          <div className="mt-3 flex items-center justify-between">
-                            <Badge variant="secondary">{course.level}</Badge>
-                            <Button size="sm">Enroll</Button>
+                        </div>
+
+                        <CardContent className="p-4">
+                          <div className="mb-2">
+                            <h3 className="font-bold text-base leading-tight line-clamp-2 h-10 mb-1 group-hover:text-primary transition-colors text-foreground">{course.title}</h3>
+                            <p className="text-xs text-muted-foreground">By {course.instructor}</p>
+                          </div>
+
+                          <div className="flex items-center gap-1 text-sm font-medium mb-3">
+                            <span className="font-bold text-amber-700">{course.rating}</span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star key={i} className={`size-3 ${i < Math.floor(course.rating) ? "fill-amber-400 text-amber-400" : "text-gray-300"}`} />
+                              ))}
+                            </div>
+                            <span className="text-xs text-muted-foreground">({course.reviews})</span>
+                          </div>
+
+                          <div className="flex items-center justify-between mt-auto">
+                            <div className="flex flex-col">
+                              <span className="font-bold text-lg text-foreground">{course.price}</span>
+                              <span className="text-xs text-muted-foreground line-through">{course.originalPrice}</span>
+                            </div>
+                            {course.bestseller && (
+                              <Badge variant="secondary" className="rounded-sm bg-yellow-100 text-yellow-800 font-bold text-xs px-2 py-0.5 border-none">Bestseller</Badge>
+                            )}
                           </div>
                         </CardContent>
                       </Card>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Skill Paths */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-sans text-xl">
-                    <BookOpen className="size-5 text-primary" />
-                    Skill Paths
-                  </CardTitle>
-                  <CardDescription>Curated learning paths to master in-demand skills</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  {[
-                    {
-                      title: "Full-Stack Web Development",
-                      courses: 8,
-                      duration: "40 hours",
-                      enrolled: 5420,
-                    },
-                    {
-                      title: "Cloud Architecture & DevOps",
-                      courses: 6,
-                      duration: "32 hours",
-                      enrolled: 3890,
-                    },
-                    {
-                      title: "Data Science & Machine Learning",
-                      courses: 10,
-                      duration: "55 hours",
-                      enrolled: 7240,
-                    },
-                  ].map((path, i) => (
-                    <Card key={i} className="border-2 transition-shadow hover:shadow-md">
-                      <CardContent className="flex items-center justify-between p-4">
-                        <div className="flex-1">
-                          <h3 className="font-sans text-base font-semibold">{path.title}</h3>
-                          <div className="mt-1 flex flex-wrap gap-3 text-sm text-muted-foreground">
-                            <span>{path.courses} courses</span>
-                            <span>•</span>
-                            <span>{path.duration}</span>
-                            <span>•</span>
-                            <span>{path.enrolled.toLocaleString()} enrolled</span>
-                          </div>
-                        </div>
-                        <Button variant="outline">View Path</Button>
-                      </CardContent>
-                    </Card>
+                    </Link>
                   ))}
-                </CardContent>
-              </Card>
+                </div>
+              )}
             </div>
 
-            {/* Sidebar */}
-            <aside className="space-y-6 lg:col-span-4">
-              {/* My Certificates */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 font-sans text-base">
-                    <Award className="size-5 text-primary" />
-                    My Certificates
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  {["Advanced React Certification", "AWS Cloud Practitioner", "Agile Scrum Master"].map((cert, i) => (
-                    <div key={i} className="rounded-lg border bg-primary/5 p-3">
-                      <div className="flex items-start gap-3">
-                        <Award className="size-5 shrink-0 text-primary" />
-                        <div className="flex-1">
-                          <p className="font-sans text-sm font-medium leading-tight">{cert}</p>
-                          <p className="text-xs text-muted-foreground">Completed Dec 2024</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              {/* Learning Stats */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-sans text-base">Your Progress</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-1">
-                    <p className="text-3xl font-bold text-primary">12</p>
-                    <p className="text-sm text-muted-foreground">Courses Completed</p>
+            {/* Top Categories */}
+            <div className="px-4 pb-12">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Top Categories</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {["Design", "Development", "Marketing", "IT and Software", "Personal Development", "Business", "Photography", "Music"].map((cat) => (
+                  <div key={cat} className="p-4 border bg-card hover:bg-accent/50 hover:shadow-md transition-all cursor-pointer rounded-lg">
+                    <h3 className="font-bold text-lg text-foreground">{cat}</h3>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-3xl font-bold text-primary">87</p>
-                    <p className="text-sm text-muted-foreground">Hours Learned</p>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-3xl font-bold text-primary">5</p>
-                    <p className="text-sm text-muted-foreground">Certificates Earned</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Learning Goals */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-sans text-base">Weekly Goal</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-sm text-muted-foreground">Complete 5 hours of learning</p>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span>3.5 / 5 hours</span>
-                      <span className="font-medium text-primary">70%</span>
-                    </div>
-                    <Progress value={70} className="h-2" />
-                  </div>
-                </CardContent>
-              </Card>
-            </aside>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </main>

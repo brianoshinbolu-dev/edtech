@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Bell, Search, Home, BookOpen, Briefcase, Users, MessageSquare } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function TopNav() {
   return (
@@ -61,14 +69,31 @@ export function TopNav() {
           <Button variant="ghost" size="icon-sm">
             <Bell className="size-5" />
           </Button>
-          <Button variant="ghost" size="icon-sm" asChild>
-            <Link href="/profile">
-              <Avatar className="size-8">
-                <AvatarImage src="/professional-headshot.png" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-            </Link>
-          </Button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon-sm" className="rounded-full">
+                <Avatar className="size-8">
+                  <AvatarImage src="/professional-headshot.png" />
+                  <AvatarFallback>JD</AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link href="/profile">My Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/my-learning">My Learning</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="text-destructive">
+                Log out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

@@ -1,0 +1,278 @@
+[
+    {
+        "id": "1",
+        "title": "The Complete Python Bootcamp From Zero to Hero in Python",
+        "subtitle": "Learn Python like a Professional! Start from the basics and go all the way to creating your own applications and games",
+        "instructor": "Jose Portilla",
+        "author": {
+            "name": "Jose Portilla",
+            "role": "Head of Data Science, Pierian Data Inc.",
+            "image": "/user-1.jpg",
+            "bio": "Jose Marcial Portilla has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science and programming."
+        },
+        "rating": 4.6,
+        "reviews": 512143,
+        "students": 1850381,
+        "price": "₦19,900",
+        "originalPrice": "₦84,900",
+        "discount": "76% off",
+        "bestseller": true,
+        "image": "/course-python.jpg",
+        "language": "English",
+        "lastUpdated": "11/2024",
+        "description": "Become a Python Programmer and learn one of employer's most requested skills of 2024! This is the most comprehensive, yet straight-forward, for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3. With over 100 lectures and more than 21 hours of video this comprehensive course leaves no stone unturned! This course includes quizzes, tests, coding exercises and homework assignments as well as 3 major projects to create a Python project portfolio!",
+        "whatYouWillLearn": [
+            "Learn purely the Python 3 language",
+            "Create games with Python, like Tic Tac Toe and Blackjack",
+            "Learn advanced Python features, like the collections module",
+            "Understand complex topics, like decorators and timestamp",
+            "Build a complete GUI with Python",
+            "Understand how to use Jupyter Notebooks"
+        ],
+        "curriculum": [
+            {
+                "id": "section-1",
+                "title": "Section 1: Python Setup",
+                "lectures": 4,
+                "duration": "18m",
+                "items": [
+                    {
+                        "id": "1-1",
+                        "title": "Course Introduction",
+                        "duration": "2:15",
+                        "type": "video"
+                    },
+                    {
+                        "id": "1-2",
+                        "title": "Python Installation",
+                        "duration": "5:30",
+                        "type": "video"
+                    },
+                    {
+                        "id": "1-3",
+                        "title": "Running Python Code",
+                        "duration": "4:45",
+                        "type": "video"
+                    },
+                    {
+                        "id": "1-4",
+                        "title": "Git and Github",
+                        "duration": "5:30",
+                        "type": "video"
+                    }
+                ]
+            },
+            {
+                "id": "section-2",
+                "title": "Section 2: Python Object and Data Structure Basics",
+                "lectures": 4,
+                "duration": "46m",
+                "items": [
+                    {
+                        "id": "2-1",
+                        "title": "Numbers",
+                        "duration": "12:15",
+                        "type": "video"
+                    },
+                    {
+                        "id": "2-2",
+                        "title": "Variable Assignments",
+                        "duration": "8:30",
+                        "type": "video"
+                    },
+                    {
+                        "id": "2-3",
+                        "title": "Introduction to Strings",
+                        "duration": "14:45",
+                        "type": "video"
+                    },
+                    {
+                        "id": "2-4",
+                        "title": "Indexing and Slicing with Strings",
+                        "duration": "10:30",
+                        "type": "video"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Machine Learning A-Z: AI, Python & R + ChatGPT Prize [2024]",
+        "subtitle": "Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.",
+        "instructor": "Kirill Eremenko",
+        "author": {
+            "name": "Kirill Eremenko",
+            "role": "Data Science Team Lead",
+            "image": "/user-2.jpg",
+            "bio": "Kirill Eremenko is a Data Science instructor with years of experience in the field."
+        },
+        "rating": 4.5,
+        "reviews": 182341,
+        "students": 950123,
+        "price": "₦22,900",
+        "originalPrice": "₦89,900",
+        "discount": "74% off",
+        "bestseller": true,
+        "image": "/course-ml.jpg",
+        "language": "English",
+        "lastUpdated": "10/2024",
+        "description": "Interested in the field of Machine Learning? Then this course is for you! This course has been designed by two professional Data Scientists so that we can share our knowledge and help you learn complex theory, algorithms and coding libraries in a simple way. We will walk you step-by-step into the World of Machine Learning. With every tutorial you will develop new skills and improve your understanding of this challenging yet lucrative sub-field of Data Science.",
+        "whatYouWillLearn": [
+            "Master Machine Learning on Python & R",
+            "Have a great intuition of many Machine Learning models",
+            "Make accurate predictions",
+            "Make powerful analysis",
+            "Build robust Machine Learning models"
+        ],
+        "curriculum": [
+            {
+                "id": "sec-1",
+                "title": "Data Preprocessing",
+                "lectures": 3,
+                "duration": "35m",
+                "items": [
+                    {
+                        "id": "ml-1",
+                        "title": "Welcome to Machine Learning",
+                        "duration": "5:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "ml-2",
+                        "title": "Importing the Libraries",
+                        "duration": "10:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "ml-3",
+                        "title": "Importing the Dataset",
+                        "duration": "20:00",
+                        "type": "video"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "The Web Developer Bootcamp 2024",
+        "subtitle": "The only course you need to learn web development - HTML, CSS, JS, Node, and More!",
+        "instructor": "Colt Steele",
+        "author": {
+            "name": "Colt Steele",
+            "role": "Developer and Bootcamp Instructor",
+            "image": "/user-3.jpg",
+            "bio": "Colt Steele is a developer and instructor who has taught thousands of students how to code."
+        },
+        "rating": 4.7,
+        "reviews": 265901,
+        "students": 890123,
+        "price": "₦14,900",
+        "originalPrice": "₦74,900",
+        "discount": "80% off",
+        "bestseller": false,
+        "image": "/course-web.jpg",
+        "language": "English",
+        "lastUpdated": "12/2024",
+        "description": "Hi! Welcome to the brand new version of The Web Developer Bootcamp, Udemy's most popular web development course. This course was just completely overhauled to prepare students for the 2024 job market, with over 60 hours of brand new content. This is the only course you need to learn web development. We cover all the new options, sticking to the fundamentals and covering the tools you'll need to know.",
+        "whatYouWillLearn": [
+            "Make REAL web applications using cutting-edge technologies",
+            "Create responsive, accessible, and nice layouts",
+            "Recognize and prevent common security exploits like SQL-Injection & XSS",
+            "Continue to learn and grow as a developer"
+        ],
+        "curriculum": [
+            {
+                "id": "web-1",
+                "title": "Introduction to HTML",
+                "lectures": 3,
+                "duration": "45m",
+                "items": [
+                    {
+                        "id": "w-1",
+                        "title": "HTML Basics",
+                        "duration": "15:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "w-2",
+                        "title": "Forms & Tables",
+                        "duration": "15:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "w-3",
+                        "title": "Semantic HTML",
+                        "duration": "15:00",
+                        "type": "video"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "100 Days of Code: The Complete Python Pro Bootcamp for 2024",
+        "subtitle": "Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games and apps!",
+        "instructor": "Dr. Angela Yu",
+        "author": {
+            "name": "Dr. Angela Yu",
+            "role": "Lead Instructor at App Brewery",
+            "image": "/professional-user.png",
+            "bio": "Angela is the lead instructor at the London App Brewery, London's leading Programming Bootcamp."
+        },
+        "rating": 4.8,
+        "reviews": 289012,
+        "students": 1203948,
+        "price": "₦18,900",
+        "originalPrice": "₦79,900",
+        "discount": "76% off",
+        "bestseller": true,
+        "image": "/course-angela.jpg",
+        "language": "English",
+        "lastUpdated": "01/2025",
+        "description": "Welcome to the 100 Days of Code - The Complete Python Pro Bootcamp, the only course you need to learn to code with Python. With over 500,000 5 STAR reviews and a 4.8 average rating, my courses are some of the HIGHEST RATED courses in the history of Udemy! 100 Days of Code is an online coding bootcamp that promises to take you from a complete beginner to a professional software developer.",
+        "whatYouWillLearn": [
+            "Be able to program in Python professionally",
+            "Create a portfolio of 100 Python projects to apply for developer jobs",
+            "Build websites, games and apps",
+            "Data Science and Machine Learning",
+            "Selenium Driver and Automation"
+        ],
+        "curriculum": [
+            {
+                "id": "py-1",
+                "title": "Day 1: Working with Variables",
+                "lectures": 4,
+                "duration": "1h",
+                "items": [
+                    {
+                        "id": "p-1",
+                        "title": "Printing to Console",
+                        "duration": "10:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "p-2",
+                        "title": "String Manipulation",
+                        "duration": "15:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "p-3",
+                        "title": "Input Function",
+                        "duration": "15:00",
+                        "type": "video"
+                    },
+                    {
+                        "id": "p-4",
+                        "title": "Variables",
+                        "duration": "20:00",
+                        "type": "video"
+                    }
+                ]
+            }
+        ]
+    }
+]
