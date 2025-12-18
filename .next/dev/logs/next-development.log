@@ -1,201 +1,152 @@
-[00:00:02.254] Server  LOG      ✓ Ready in 1505ms
-[00:00:13.556] Server  LOG      ○ Compiling / ...
-[00:00:20.156] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:24.339] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:24.339] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:24.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998315097}
-[00:00:29.796] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:30.148] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:30.148] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:30.148] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998321657}
-[00:00:35.461] Server  LOG      ○ Compiling /learning ...
-[00:00:37.755] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998329290}
-[00:08:15.558] Server  LOG      ✓ Compiled in 12.3s
-[00:08:49.271] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:49.729] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:08:49.729] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:08:49.729] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998821338}
-[00:08:52.848] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998824437}
-[00:09:20.885] Server  LOG      ✓ Compiled in 6s
-[00:10:01.213] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/profile color: rgb(120, 120, 120) color: inherit {"dp":"/profile","o":"http://localhost:3000/profile","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998892802}
-[00:10:11.292] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998902898}
-[00:10:16.570] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1765998908045}
-[00:31:38.740] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:31:39.332] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:31:39.332] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:31:39.332] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766000190834}
-[00:31:42.292] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:31:42.821] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:31:42.821] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:31:42.821] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766000194360}
-[00:33:57.601] Server  LOG      ✓ Compiled in 2.8s
-[00:34:21.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:34:21.586] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:34:21.586] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:34:21.586] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766000353194}
-[00:46:50.903] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001102307}
-[00:47:01.209] Server  LOG      ✓ Compiled in 1398ms
-[00:47:01.210] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/profile color: rgb(120, 120, 120) color: inherit {"dp":"/profile","o":"http://localhost:3000/profile","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001112674}
-[00:47:42.824] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001154410}
-[00:50:11.544] Server  LOG      ✓ Compiled in 668ms
-[00:50:56.228] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:50:56.607] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:50:56.607] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:50:56.607] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001348214}
-[00:53:19.936] Server  LOG      ✓ Compiled in 1227ms
-[00:54:36.409] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:54:36.744] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:54:36.744] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[00:54:36.744] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001568347}
-[00:54:50.638] Server  LOG      ✓ Compiled in 1314ms
-[00:55:28.355] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:55:28.355] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:55:28.355] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/4 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/4","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001619748}
-[00:55:30.400] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:55:30.400] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:16.086] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001907636}
-[01:00:21.152] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:21.152] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:21.152] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/1","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001912761}
-[01:00:21.662] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:21.662] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:23.892] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001915497}
-[01:00:27.956] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:27.956] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:27.956] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001919561}
-[01:00:28.456] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:28.456] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:29.525] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001921122}
-[01:00:33.318] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:33.318] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:33.318] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/3 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/3","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001924919}
-[01:00:33.817] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:33.817] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:35.112] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001926707}
-[01:00:38.576] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:38.576] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:38.576] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/4 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/4","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001930178}
-[01:00:39.078] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:39.078] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:00:40.347] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001931944}
-[01:01:15.793] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001967390}
-[01:01:22.236] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001973830}
-[01:01:32.163] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:01:32.164] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:01:32.164] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/4 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/4","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001983772}
-[01:01:32.671] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:01:32.671] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:01:34.246] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766001985850}
-[01:03:22.303] Server  LOG      ✓ Compiled in 256ms
-[01:03:37.214] Server  LOG      ✓ Compiled in 220ms
-[01:03:51.360] Server  LOG      ✓ Compiled in 253ms
-[01:04:04.043] Server  LOG      ✓ Compiled in 229ms
-[01:04:06.475] Server  LOG      ✓ Compiled in 543ms
-[01:04:43.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:04:44.265] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:04:44.265] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[01:04:44.265] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002175864}
-[01:04:47.117] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:04:47.117] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:04:47.117] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002178689}
-[01:04:47.589] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:04:47.589] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:04:59.938] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002191532}
-[01:05:04.370] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:04.370] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:04.370] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/4 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/4","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002195973}
-[01:05:04.869] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:04.869] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:06.634] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002198231}
-[01:05:15.939] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:15.939] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:15.939] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/1","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002207546}
-[01:05:16.439] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:16.439] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:18.923] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002210516}
-[01:05:58.720] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:58.720] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:58.720] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002250331}
-[01:05:59.233] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:05:59.233] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:03.425] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002255018}
-[01:06:06.511] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:06.512] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:06.512] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/1","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002258117}
-[01:06:07.010] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:07.010] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:08.333] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002259938}
-[01:06:24.047] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:24.047] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:24.047] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002275658}
-[01:06:24.567] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:06:24.567] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:07:40.167] Server  LOG      ✓ Compiled in 220ms
-[01:07:40.411] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:07:40.411] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:07:40.411] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'toString')
-[01:08:01.477] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_199f1bdc._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:08:01.481] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\alfanomeric_edtech_545ca83b._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:08:01.490] Server  WARN    Error: Route "/learning/course/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:02.268] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:08:02.580] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:02.580] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:02.580] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:08:02.580] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning/course/2","route":"/learning/course/[id]"}
-[01:08:02.580] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002374187}
-[01:08:03.051] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:03.051] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:03.051] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'toString')
-[01:08:05.732] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_199f1bdc._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:08:05.734] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\alfanomeric_edtech_545ca83b._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:08:05.738] Server  WARN    Error: Route "/learning/course/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:06.238] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:08:06.554] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:06.554] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:06.554] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:08:06.555] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning/course/2","route":"/learning/course/[id]"}
-[01:08:06.555] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002378154}
-[01:08:07.029] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:07.029] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:07.029] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'toString')
-[01:08:16.336] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:08:16.640] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:08:16.640] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
-[01:08:16.640] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002388247}
-[01:08:19.214] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:19.214] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:19.215] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002390824}
-[01:08:19.737] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:19.737] Browser ERROR   A param property was accessed directly with `params.id`. `params` is a Promise and must be unwrapped with `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[01:08:19.737] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'toString')
-[01:09:24.969] Server  LOG      ✓ Compiled in 539ms
-[01:09:25.071] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:09:32.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:09:34.367] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:09:34.367] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning/course/2","route":"/learning/course/[id]"}
-[01:09:34.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002464995}
-[01:09:56.343] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002487834}
-[01:10:00.303] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002491907}
-[01:10:12.522] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/2/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002504091}
-[01:10:23.054] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:00:25.449] Server  LOG      ✓ Ready in 20.4s
+[00:01:42.725] Server  LOG      ○ Compiling / ...
+[00:02:00.469] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055545309}
+[00:02:17.397] Server  LOG      ○ Compiling /learning ...
+[00:02:21.928] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055564942}
+[00:02:29.000] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055572102}
+[00:02:37.189] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/2/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055580286}
+[00:10:09.167] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056032263}
+[00:10:20.176] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056043153}
+[00:11:28.057] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056111131}
+[00:11:32.572] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056115560}
+[00:11:32.776] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056115870}
+[00:11:36.395] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/network color: rgb(120, 120, 120) color: inherit {"dp":"/network","o":"http://localhost:3000/network","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056119400}
+[00:15:37.842] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056360918}
+[00:15:57.234] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056380194}
+[00:17:25.155] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056468228}
+[00:17:49.320] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056492215}
+[00:27:38.946] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:39.906] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:39.906] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:27:39.907] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057083005}
+[00:28:41.384] Server  LOG      ✓ Compiled in 1298ms
+[00:29:27.669] Server  LOG      ✓ Compiled in 2.9s
+[00:29:32.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057197994}
+[00:30:12.297] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057235331}
+[00:30:44.361] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
 
 If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
 
 For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[01:10:23.055] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[01:10:23.055] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:30:44.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:30:44.361] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
 
 If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
 
 For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[01:10:23.055] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[01:10:26.620] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002518229}
-[01:10:32.380] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002523819}
-[01:12:51.773] Server  LOG      ✓ Compiled in 988ms
-[01:13:44.441] Server  LOG      ✓ Compiled in 864ms
-[01:14:34.338] Server  LOG      ✓ Compiled in 677ms
-[01:14:59.652] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002791218}
-[01:15:04.424] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/3 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/3","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002796014}
-[01:15:13.598] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002805198}
-[01:15:46.285] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002837867}
-[01:15:49.549] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766002841152}
+[00:30:44.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:30:50.212] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:30:50.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:30:50.212] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:30:50.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:05.275] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/messages color: rgb(120, 120, 120) color: inherit {"dp":"/messages","o":"http://localhost:3000/messages","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057288326}
+[00:31:09.037] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:09.037] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:09.037] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:09.037] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:10.758] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057293840}
+[00:31:12.775] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:12.775] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:12.775] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:12.775] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:15.618] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057298288}
+[00:31:16.858] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:16.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:16.859] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:16.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:18.921] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/messages color: rgb(120, 120, 120) color: inherit {"dp":"/messages","o":"http://localhost:3000/messages","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057302007}
+[00:31:25.257] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:25.257] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:25.257] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:31:25.257] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:27.491] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057310214}
+[01:08:31.942] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059535001}
+[01:08:33.730] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059536685}
+[01:08:35.976] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059539064}
+[01:08:48.666] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059551757}
+[01:26:31.621] Server  LOG      ✓ Compiled in 1380ms
+[01:29:06.887] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060769957}
+[01:29:16.675] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060779769}
+[01:29:23.557] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/1/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060786650}
+[01:29:39.645] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/1","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060802744}
+[01:29:46.104] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060808988}
+[01:33:21.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/interview","route":"/interview"}
+[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/interview color: rgb(120, 120, 120) color: inherit {"dp":"/interview","o":"http://localhost:3000/interview","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766061024678}
+[01:54:09.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/recruitment","route":"/recruitment"}
+[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/recruitment color: rgb(120, 120, 120) color: inherit {"dp":"/recruitment","o":"http://localhost:3000/recruitment","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766062273588}
+[01:56:07.550] Server  LOG      ✓ Compiled in 2.1s
+[01:56:36.107] Server  LOG      ✓ Compiled in 810ms
+[01:56:44.544] Server  LOG      ✓ Compiled in 497ms
+[01:57:03.376] Server  LOG      ✓ Compiled in 415ms
+[01:58:12.952] Server  LOG      ✓ Compiled in 826ms
+[01:58:14.653] Server  LOG      ✓ Compiled in 848ms
+[02:30:48.363] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064470929}
+[02:30:51.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064474196}
+[02:30:54.205] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064477162}
+[02:32:16.966] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/profile color: rgb(120, 120, 120) color: inherit {"dp":"/profile","o":"http://localhost:3000/profile","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064560001}
+[02:32:30.506] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064573388}
+[02:32:32.458] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064575523}
+[02:32:39.921] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064583011}
+[02:32:44.478] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/1/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064587556}
+[03:13:54.659] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[03:13:54.659] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:13:54.659] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[03:13:54.659] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

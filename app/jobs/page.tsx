@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Briefcase, MapPin, DollarSign, Clock, Building2, Search } from "lucide-react"
+import { CompanyHoverCard } from "@/components/jobs/company-hover-card"
 
 export default function JobsPage() {
   return (
@@ -178,7 +179,9 @@ export default function JobsPage() {
                       <div className="flex-1">
                         <CardTitle className="font-sans text-lg">{job.title}</CardTitle>
                         <CardDescription className="flex flex-wrap items-center gap-2 text-sm">
-                          <span className="font-medium">{job.company}</span>
+                          <CompanyHoverCard companyName={job.company} location={job.location}>
+                            <span className="font-medium">{job.company}</span>
+                          </CompanyHoverCard>
                         </CardDescription>
                       </div>
                     </div>

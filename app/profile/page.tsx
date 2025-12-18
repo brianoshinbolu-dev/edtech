@@ -1,14 +1,33 @@
+"use client"
+
 import { TopNav } from "@/components/navigation/top-nav"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Mail, Pencil, Award, Briefcase, GraduationCap } from "lucide-react"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
+import { MapPin, Mail, Pencil, Award, Briefcase, GraduationCap, Eye } from "lucide-react"
+import { useState } from "react"
+import { useToast } from "@/hooks/use-toast"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function ProfilePage() {
+  const [isPublic, setIsPublic] = useState(true)
+  const { toast } = useToast()
+
+  const handleVisibilityChange = (checked: boolean) => {
+    setIsPublic(checked)
+    toast({
+      title: checked ? "Profile Visible" : "Profile Hidden",
+      description: checked ? "Your profile is now visible to recruiters." : "Your profile is now hidden from search results."
+    })
+  }
+
   return (
     <div className="min-h-screen bg-muted/30">
       <TopNav />
+      <Toaster />
 
       <main className="mx-auto max-w-screen-lg px-4 py-6">
         {/* Profile Header Card */}
@@ -36,10 +55,18 @@ export default function ProfilePage() {
                   </div>
                 </div>
               </div>
-              <Button className="gap-2">
-                <Pencil className="size-4" />
-                Edit Profile
-              </Button>
+              <div className="flex flex-col gap-2 items-end">
+                <Button className="gap-2">
+                  <Pencil className="size-4" />
+                  Edit Profile
+                </Button>
+                <div className="flex items-center space-x-2">
+                  <Switch id="public-profile" checked={isPublic} onCheckedChange={handleVisibilityChange} />
+                  <Label htmlFor="public-profile" className="text-xs text-muted-foreground flex gap-1 items-center">
+                    <Eye className="size-3" /> Public
+                  </Label>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>

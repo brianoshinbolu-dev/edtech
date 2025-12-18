@@ -1,0 +1,388 @@
+# Product Requirements Document (PRD)
+
+## 1. Product Overview
+
+**Product Name:** (Working Name)
+
+**Product Type:** Enterprise EdTech + Professional Network + Recruitment Platform
+
+**Vision:**
+Create a unified, scalable SaaS platform that fuses the *professional identity and networking strengths of LinkedIn* with the *structured learning and certification depth of Udemy* — while remaining original, skills-first, and enterprise-focused.
+
+The platform is not a clone of LinkedIn or Udemy. Instead, it re-centers the experience around **verified skills, learning-to-hiring flow, and enterprise recruitment execution**.
+
+---
+
+## 2. Target Users & Personas
+
+### Learners / Professionals
+
+* Students
+* Early-career professionals
+* Skilled workers
+* Career switchers
+
+### Employers / Recruiters
+
+* HR managers
+* Recruiters
+* Hiring managers
+
+### Instructors / Organizations
+
+* Training providers
+* Enterprises
+* Educational institutions
+
+### Platform Admins
+
+* System administrators
+* Content moderators
+
+---
+
+## 3. Core Use Cases
+
+### Learner
+
+* Create a professional profile
+* Enroll in courses and skill paths
+* Earn certificates
+* Build a verified skill-based profile
+* Apply for jobs using profile
+* Participate in professional discussions
+
+### Recruiter
+
+* Post jobs
+* View candidate profiles
+* Run assessments
+* Schedule interviews
+* Manage hiring pipeline
+
+### Instructor / Organization
+
+* Publish courses
+* Track learner progress
+* Issue certificates
+
+---
+
+## 4. Functional Requirements
+
+### 4.1 Authentication & Access
+
+* Login / Signup (email, OAuth-ready)
+* Role-based access control
+* Secure session handling
+
+---
+
+### 4.2 User Profile (LinkedIn-style)
+
+* Profile photo
+* Name & professional headline
+* About section
+* Skills list
+* Education history
+* Work experience
+* Certifications (auto-added from completed courses)
+* Edit profile
+* Public / private visibility controls
+
+---
+
+### 4.3 Social Feed
+
+* Post creation (text, links)
+* Feed cards
+* Like, comment, share
+* Follow users
+* Right sidebar:
+
+  * Trending courses
+  * Trending jobs
+
+---
+
+### 4.4 Learning Management (EdTech)
+
+* Course catalog
+* Course cards
+* Skill paths
+* Course progress tracking
+* Assessments & quizzes
+* Certificates & badge UI
+* Learning dashboard
+
+---
+
+### 4.5 Job Listings
+
+* Job cards
+* Job search & filters:
+
+  * Role
+  * Location
+  * Remote
+* Apply using profile
+* Company preview card
+
+---
+
+### 4.6 Recruitment Dashboard (HR CRM)
+
+* Candidate pipeline stages:
+
+  * Applied
+  * Test
+  * Interview
+  * Hired
+* Candidate list & filtering
+* Candidate profile modal
+* Interview scheduling calendar
+* Assessment & test results view
+
+---
+
+### 4.7 Interview Room
+
+* In-app video call
+* Candidate video panel
+* Interviewer video panel
+* Coding test / task panel
+* Interview notes
+* Timer & call controls
+
+---
+
+## 5. UI / UX Requirements
+
+### Design Style
+
+* Clean, corporate, minimal
+* White background
+* Soft blue accents
+* Card-based layout
+* Rounded corners
+* Subtle shadows
+* Sans-serif typography (Inter / Roboto style)
+
+### Layout
+
+* Desktop-first
+* Fully responsive
+
+### Navigation
+
+* Top navigation bar:
+
+  * Home
+  * Learning
+  * Jobs
+  * Network
+  * Messages
+  * Profile
+* Left sidebar for dashboards
+
+### Overall Feel
+
+* Trustworthy
+* Professional
+* Scalable enterprise SaaS
+* LinkedIn-inspired but distinct
+
+---
+
+## 6. Non-Functional Requirements
+
+### Performance
+
+* Fast page load (<2s)
+* Support high concurrent users
+
+### Security
+
+* Secure authentication
+* Role-based permissions
+* Data encryption
+
+### Scalability
+
+* Multi-tenant ready
+* Modular architecture
+
+### Accessibility
+
+* WCAG-compliant UI
+
+---
+
+## 7. Success Metrics (KPIs)
+
+* User signups
+* Course completion rate
+* Certificate issuance
+* Job applications submitted
+* Recruiter engagement
+* Time-to-hire reduction
+
+---
+
+## 8. Out of Scope (MVP)
+
+* Payments & subscriptions
+* AI recommendations
+* Mobile native apps
+
+---
+
+## 9. Future Enhancements
+
+* AI skill matching
+* Resume parsing
+* Paid courses
+* Organization white-labeling
+* Mobile apps
+* Advanced analytics
+
+---
+
+## 10. Assumptions & Constraints
+
+* Web-first delivery
+* Single codebase
+* Cloud-hosted SaaS
+
+---
+
+**Document Status:** Draft
+
+---
+
+## 11. User Flow & Navigation Flow
+
+### 11.1 Entry Flow (Authentication)
+
+1. User lands on marketing / app homepage
+2. Clicks **Login** or **Sign Up**
+3. Completes authentication
+4. Redirected based on role:
+
+   * Learner → Home Feed
+   * Recruiter → Recruitment Dashboard
+   * Instructor → Learning Dashboard
+
+---
+
+### 11.2 Core Navigation Flow
+
+**Top Navigation Bar (Global):**
+
+* Home → Social Feed (default landing after login)
+* Learning → Courses & Skill Paths
+* Jobs → Job Listings
+* Network → Connections & People Discovery
+* Messages → Direct messages & notifications
+* Profile → Personal profile page
+
+**Left Sidebar (Contextual / Dashboard):**
+
+* Appears on Learning, Recruiter, and Admin views
+* Shows section-specific shortcuts
+
+---
+
+### 11.3 Learner Flow
+
+1. **Home Feed**
+
+   * View posts, updates, trending courses & jobs
+   * Create posts
+
+2. **Learning Section**
+
+   * Browse course cards
+   * Enroll in courses or skill paths
+   * Track progress via progress bars
+   * Complete assessments
+   * Earn certificates (auto-added to profile)
+
+3. **Profile Growth**
+
+   * Skills & certificates update automatically
+   * User edits headline, experience, education
+
+4. **Job Application Flow**
+
+   * Navigate to Jobs
+   * Filter jobs
+   * View job details
+   * Click **Apply with Profile**
+   * Application enters recruiter pipeline
+
+---
+
+### 11.4 Recruiter / HR Flow
+
+1. **Recruitment Dashboard**
+
+   * View candidate pipeline:
+
+     * Applied → Test → Interview → Hired
+
+2. **Candidate Review**
+
+   * Open candidate profile modal
+   * Review skills, certificates, tests
+
+3. **Assessment Flow**
+
+   * Assign tests
+   * Review test results
+
+4. **Interview Scheduling**
+
+   * Schedule interview via calendar
+   * Invite candidate
+
+5. **Interview Room**
+
+   * Join in-app video call
+   * View candidate video
+   * Use coding test panel
+   * Take interview notes
+   * Track time via timer
+
+6. **Decision**
+
+   * Move candidate to next pipeline stage
+
+---
+
+### 11.5 Instructor / Organization Flow
+
+1. Access Learning Dashboard
+2. Create or manage courses
+3. Monitor learner progress
+4. Issue certificates
+
+---
+
+### 11.6 System Flow (Certificates & Skills)
+
+* Course completion → Certificate issued
+* Certificate → Added to profile
+* Skill tags → Improve job matching & visibility
+
+---
+
+### 11.7 Overall Experience Flow Summary
+
+**Learn → Verify Skills → Build Profile → Apply → Get Hired**
+
+This closed-loop system connects education, professional identity, and recruitment inside one scalable SaaS platform.
+
+---
+
+**Document Status:** Updated Draft

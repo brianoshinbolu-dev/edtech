@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { TopNav } from "@/components/navigation/top-nav"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -11,75 +14,113 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Calendar, Clock, FileText, Mail, Phone, Users, ChevronRight } from "lucide-react"
+import { Calendar, Clock, FileText, Mail, Phone, Users, ChevronRight, CheckCircle2 } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+
+type Stage = "Applied" | "Test" | "Interview" | "Hired"
+
+interface Candidate {
+  id: number
+  name: string
+  role: string
+  status: Stage
+  appliedDate: string
+  email: string
+  phone: string
+  skills: string[]
+  experience: string
+  testScore?: number
+  interviewDate?: string
+}
+
+const INITIAL_CANDIDATES: Candidate[] = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    role: "Frontend Developer",
+    status: "Applied",
+    appliedDate: "2 days ago",
+    email: "sarah.j@email.com",
+    phone: "+1 (555) 123-4567",
+    skills: ["React", "TypeScript", "Next.js"],
+    experience: "5 years",
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    role: "Product Manager",
+    status: "Test",
+    appliedDate: "5 days ago",
+    email: "m.chen@email.com",
+    phone: "+1 (555) 234-5678",
+    skills: ["Product Strategy", "Agile", "Data Analysis"],
+    experience: "7 years",
+    testScore: 85,
+  },
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    role: "UX Designer",
+    status: "Interview",
+    appliedDate: "1 week ago",
+    email: "emily.r@email.com",
+    phone: "+1 (555) 345-6789",
+    skills: ["Figma", "User Research", "Prototyping"],
+    experience: "4 years",
+    interviewDate: "Tomorrow 2:00 PM",
+  },
+  {
+    id: 4,
+    name: "David Park",
+    role: "DevOps Engineer",
+    status: "Interview",
+    appliedDate: "1 week ago",
+    email: "d.park@email.com",
+    phone: "+1 (555) 456-7890",
+    skills: ["AWS", "Docker", "Kubernetes"],
+    experience: "6 years",
+    interviewDate: "Dec 20, 10:00 AM",
+  },
+  {
+    id: 5,
+    name: "Lisa Anderson",
+    role: "Frontend Developer",
+    status: "Hired",
+    appliedDate: "3 weeks ago",
+    email: "lisa.a@email.com",
+    phone: "+1 (555) 567-8901",
+    skills: ["React", "Vue", "CSS"],
+    experience: "5 years",
+  },
+]
+
+const STAGES: Stage[] = ["Applied", "Test", "Interview", "Hired"]
 
 export default function RecruitmentDashboardPage() {
-  const candidates = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      role: "Frontend Developer",
-      status: "Applied",
-      appliedDate: "2 days ago",
-      email: "sarah.j@email.com",
-      phone: "+1 (555) 123-4567",
-      skills: ["React", "TypeScript", "Next.js"],
-      experience: "5 years",
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "Product Manager",
-      status: "Test",
-      appliedDate: "5 days ago",
-      email: "m.chen@email.com",
-      phone: "+1 (555) 234-5678",
-      skills: ["Product Strategy", "Agile", "Data Analysis"],
-      experience: "7 years",
-      testScore: 85,
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      role: "UX Designer",
-      status: "Interview",
-      appliedDate: "1 week ago",
-      email: "emily.r@email.com",
-      phone: "+1 (555) 345-6789",
-      skills: ["Figma", "User Research", "Prototyping"],
-      experience: "4 years",
-      interviewDate: "Tomorrow 2:00 PM",
-    },
-    {
-      id: 4,
-      name: "David Park",
-      role: "DevOps Engineer",
-      status: "Interview",
-      appliedDate: "1 week ago",
-      email: "d.park@email.com",
-      phone: "+1 (555) 456-7890",
-      skills: ["AWS", "Docker", "Kubernetes"],
-      experience: "6 years",
-      interviewDate: "Dec 20, 10:00 AM",
-    },
-    {
-      id: 5,
-      name: "Lisa Anderson",
-      role: "Frontend Developer",
-      status: "Hired",
-      appliedDate: "3 weeks ago",
-      email: "lisa.a@email.com",
-      phone: "+1 (555) 567-8901",
-      skills: ["React", "Vue", "CSS"],
-      experience: "5 years",
-    },
-  ]
+  const [candidates, setCandidates] = useState<Candidate[]>(INITIAL_CANDIDATES)
+  const { toast } = useToast()
 
-  const stages = ["Applied", "Test", "Interview", "Hired"]
+  const handleMoveToNextStage = (candidateId: number, currentStatus: Stage) => {
+    const currentIndex = STAGES.indexOf(currentStatus)
+    if (currentIndex < STAGES.length - 1) {
+      const nextStage = STAGES[currentIndex + 1]
+
+      setCandidates(prev => prev.map(c =>
+        c.id === candidateId ? { ...c, status: nextStage } : c
+      ))
+
+      toast({
+        title: "Candidate Moved",
+        description: `Candidate moved to ${nextStage} stage.`,
+      })
+    }
+  }
 
   return (
     <div className="min-h-screen bg-muted/30">
       <TopNav />
+      <Toaster />
 
       <main className="mx-auto max-w-screen-xl px-4 py-6">
         {/* Header */}
@@ -94,10 +135,10 @@ export default function RecruitmentDashboardPage() {
         {/* Stats Overview */}
         <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { label: "Total Applicants", value: "127", icon: Users },
-            { label: "In Review", value: "45", icon: FileText },
-            { label: "Scheduled Interviews", value: "12", icon: Calendar },
-            { label: "Hired This Month", value: "8", icon: ChevronRight },
+            { label: "Total Applicants", value: candidates.length.toString(), icon: Users },
+            { label: "In Review", value: candidates.filter(c => c.status === "Test").length.toString(), icon: FileText },
+            { label: "Scheduled Interviews", value: candidates.filter(c => c.status === "Interview").length.toString(), icon: Calendar },
+            { label: "Hired This Month", value: candidates.filter(c => c.status === "Hired").length.toString(), icon: CheckCircle2 },
           ].map((stat, i) => (
             <Card key={i}>
               <CardContent className="flex items-center gap-4 p-6">
@@ -121,7 +162,7 @@ export default function RecruitmentDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
-              {stages.map((stage) => {
+              {STAGES.map((stage) => {
                 const stageCandidates = candidates.filter((c) => c.status === stage)
                 return (
                   <div key={stage}>
@@ -231,20 +272,6 @@ export default function RecruitmentDashboardPage() {
                                 </Card>
                               )}
 
-                              {candidate.interviewDate && (
-                                <Card>
-                                  <CardHeader className="pb-3">
-                                    <CardTitle className="text-sm">Scheduled Interview</CardTitle>
-                                  </CardHeader>
-                                  <CardContent>
-                                    <div className="flex items-center gap-2">
-                                      <Calendar className="size-4 text-primary" />
-                                      <span className="font-medium">{candidate.interviewDate}</span>
-                                    </div>
-                                  </CardContent>
-                                </Card>
-                              )}
-
                               <div className="flex gap-2">
                                 <Button variant="outline" className="flex-1 bg-transparent">
                                   View Resume
@@ -252,7 +279,14 @@ export default function RecruitmentDashboardPage() {
                                 <Button variant="outline" className="flex-1 bg-transparent">
                                   Schedule Interview
                                 </Button>
-                                <Button className="flex-1">Move to Next Stage</Button>
+                                {candidate.status !== "Hired" && (
+                                  <Button
+                                    className="flex-1"
+                                    onClick={() => handleMoveToNextStage(candidate.id, candidate.status)}
+                                  >
+                                    Move to {STAGES[STAGES.indexOf(candidate.status) + 1]}
+                                  </Button>
+                                )}
                               </div>
                             </div>
                           </DialogContent>
@@ -266,7 +300,7 @@ export default function RecruitmentDashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Interview Calendar */}
+        {/* Interview Calendar (Static for now as mostly display) */}
         <Card className="mt-6">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 font-sans text-xl">
