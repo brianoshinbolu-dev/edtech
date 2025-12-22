@@ -1347,56 +1347,24 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$nod
 ;
 ;
 function HomePage() {
-    const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([
-        {
-            id: 1,
-            author: "Sarah Johnson",
-            role: "UX Designer at Tech Corp",
-            timeAgo: "2h ago",
-            content: "Just completed an amazing course on Advanced React Patterns! The things you can do with custom hooks and composition patterns are incredible. Highly recommend to anyone looking to level up their React skills.",
-            likes: 24,
-            comments: [
-                {
-                    id: 101,
-                    author: "Jane Smith",
-                    content: "This looks fantastic! Providing accessible experiences is so key.",
-                    avatar: "/user-2.jpg",
-                    timestamp: "1h ago"
-                }
-            ],
-            avatar: "/user-1.jpg",
-            isLiked: false,
-            isCommentsOpen: false
-        },
-        {
-            id: 2,
-            author: "Michael Chen",
-            role: "Software Engineer",
-            timeAgo: "4h ago",
-            content: "Building accessible web applications is not just a requirement, it's a responsibility. #a11y #webdev",
-            likes: 15,
-            comments: [],
-            avatar: "/user-2.jpg",
-            isLiked: false,
-            isCommentsOpen: false
-        },
-        {
-            id: 3,
-            author: "Emily Davis",
-            role: "Product Manager",
-            timeAgo: "6h ago",
-            content: "Excited to announce our new feature launch next week! Stay tuned.",
-            likes: 42,
-            comments: [],
-            avatar: "/user-3.jpg",
-            isLiked: false,
-            isCommentsOpen: false
-        }
-    ]);
+    const [posts, setPosts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [newPostContent, setNewPostContent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [selectedImage, setSelectedImage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [commentDrafts, setCommentDrafts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const fileInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const { toast } = useToast();
+    // Fetch posts on mount
+    useEffect(()=>{
+        const fetchPosts = async ()=>{
+            try {
+                const data = await getPosts();
+                setPosts(data);
+            } catch (error) {
+                console.error("Failed to fetch posts", error);
+            }
+        };
+        fetchPosts();
+    }, []);
     const handleImageSelect = (event)=>{
         const file = event.target.files?.[0];
         if (file) {
@@ -1407,29 +1375,46 @@ function HomePage() {
             reader.readAsDataURL(file);
         }
     };
-    const handleCreatePost = ()=>{
+    const handleCreatePost = async ()=>{
         if (!newPostContent.trim() && !selectedImage) return;
-        const newPost = {
-            id: Date.now(),
-            author: "John Doe",
-            role: "Senior Product Manager",
-            timeAgo: "Just now",
-            content: newPostContent,
-            likes: 0,
-            comments: [],
-            avatar: "/professional-user.png",
-            image: selectedImage || undefined,
-            isLiked: false,
-            isCommentsOpen: false
-        };
-        setPosts([
-            newPost,
-            ...posts
-        ]);
-        setNewPostContent("");
-        setSelectedImage(null);
+        try {
+            // Optimistic update
+            const tempId = Date.now();
+            const optimisticPost = {
+                id: tempId,
+                author: "John Doe",
+                role: "Senior Product Manager",
+                timeAgo: "Just now",
+                content: newPostContent,
+                likes: 0,
+                comments: [],
+                avatar: "/professional-user.png",
+                image: selectedImage || undefined,
+                isLiked: false,
+                isCommentsOpen: false
+            };
+            setPosts([
+                optimisticPost,
+                ...posts
+            ]);
+            setNewPostContent("");
+            setSelectedImage(null);
+            // Server action
+            await createPost(newPostContent, selectedImage || undefined);
+            // Re-fetch to ensure sync (optional but safer for IDs)
+            const updatedPosts = await getPosts();
+            setPosts(updatedPosts);
+            toast({
+                title: "Post Created",
+                description: "Your post has been shared successfully."
+            });
+        } catch (error) {
+            console.error("Failed to create post", error);
+        // Revert optimization would go here in a real app
+        }
     };
-    const toggleLike = (postId)=>{
+    const toggleLike = async (postId)=>{
+        // Optimistic update
         setPosts(posts.map((post)=>{
             if (post.id === postId) {
                 return {
@@ -1440,6 +1425,12 @@ function HomePage() {
             }
             return post;
         }));
+        try {
+            await togglePostLike(postId);
+        // Silent success
+        } catch (error) {
+            console.error("Failed to toggle like", error);
+        }
     };
     const toggleComments = (postId)=>{
         setPosts(posts.map((post)=>{
@@ -1458,9 +1449,10 @@ function HomePage() {
                 [postId]: text
             }));
     };
-    const submitComment = (postId)=>{
+    const submitComment = async (postId)=>{
         const text = commentDrafts[postId];
         if (!text?.trim()) return;
+        // Optimistic update
         const newComment = {
             id: Date.now(),
             author: "John Doe",
@@ -1475,7 +1467,7 @@ function HomePage() {
                     comments: [
                         newComment,
                         ...post.comments
-                    ] // Add new comment to the top
+                    ]
                 };
             }
             return post;
@@ -1484,6 +1476,11 @@ function HomePage() {
                 ...prev,
                 [postId]: ""
             }));
+        try {
+            await addPostComment(postId, text);
+        } catch (error) {
+            console.error("Failed to add comment", error);
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-muted/30",
@@ -1493,13 +1490,18 @@ function HomePage() {
                 lineNumber: 187,
                 columnNumber: 7
             }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Toaster, {}, void 0, false, {
+                fileName: "[project]/alfanomeric/edtech/app/page.tsx",
+                lineNumber: 188,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "mx-auto max-w-screen-xl px-4 py-6",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid gap-6 md:grid-cols-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
-                            className: "md:col-span-3",
+                            className: "hidden md:block md:col-span-3",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                                     className: "p-0",
@@ -1508,7 +1510,7 @@ function HomePage() {
                                             className: "h-16 bg-primary/10"
                                         }, void 0, false, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 195,
+                                            lineNumber: 196,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1521,20 +1523,20 @@ function HomePage() {
                                                             src: "/professional-user.png"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 198,
+                                                            lineNumber: 199,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                             children: "JD"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 199,
+                                                            lineNumber: 200,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 197,
+                                                    lineNumber: 198,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1542,7 +1544,7 @@ function HomePage() {
                                                     children: "John Doe"
                                                 }, void 0, false, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 201,
+                                                    lineNumber: 202,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1550,7 +1552,7 @@ function HomePage() {
                                                     children: "Senior Product Manager"
                                                 }, void 0, false, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 202,
+                                                    lineNumber: 203,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1563,7 +1565,7 @@ function HomePage() {
                                                                     children: "Connections"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 205,
+                                                                    lineNumber: 206,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1571,13 +1573,13 @@ function HomePage() {
                                                                     children: "583"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 206,
+                                                                    lineNumber: 207,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 204,
+                                                            lineNumber: 205,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1587,7 +1589,7 @@ function HomePage() {
                                                                     children: "Views"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 209,
+                                                                    lineNumber: 210,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1595,45 +1597,45 @@ function HomePage() {
                                                                     children: "1,247"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 210,
+                                                                    lineNumber: 211,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 208,
+                                                            lineNumber: 209,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 203,
+                                                    lineNumber: 204,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 196,
+                                            lineNumber: 197,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 195,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                lineNumber: 193,
+                                lineNumber: 194,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                            lineNumber: 192,
+                            lineNumber: 193,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                            className: "space-y-4 md:col-span-6",
+                            className: "space-y-4 col-span-12 md:col-span-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1647,20 +1649,20 @@ function HomePage() {
                                                             src: "/professional-user.png"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 225,
+                                                            lineNumber: 226,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                             children: "JD"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 226,
+                                                            lineNumber: 227,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 224,
+                                                    lineNumber: 225,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1673,7 +1675,7 @@ function HomePage() {
                                                             onChange: (e)=>setNewPostContent(e.target.value)
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 229,
+                                                            lineNumber: 230,
                                                             columnNumber: 21
                                                         }, this),
                                                         selectedImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1685,7 +1687,7 @@ function HomePage() {
                                                                     className: "max-h-60 rounded-md object-cover"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 238,
+                                                                    lineNumber: 239,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1697,18 +1699,18 @@ function HomePage() {
                                                                         className: "size-3"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 245,
+                                                                        lineNumber: 246,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 239,
+                                                                    lineNumber: 240,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 237,
+                                                            lineNumber: 238,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1725,7 +1727,7 @@ function HomePage() {
                                                                             onChange: handleImageSelect
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                            lineNumber: 252,
+                                                                            lineNumber: 253,
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1737,18 +1739,18 @@ function HomePage() {
                                                                                 className: "size-5"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 265,
+                                                                                lineNumber: 266,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                            lineNumber: 259,
+                                                                            lineNumber: 260,
                                                                             columnNumber: 25
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 251,
+                                                                    lineNumber: 252,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1757,35 +1759,35 @@ function HomePage() {
                                                                     children: "Post"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 268,
+                                                                    lineNumber: 269,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 250,
+                                                            lineNumber: 251,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 228,
+                                                    lineNumber: 229,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 223,
+                                            lineNumber: 224,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 223,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                    lineNumber: 221,
+                                    lineNumber: 222,
                                     columnNumber: 13
                                 }, this),
                                 posts.map((post)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -1801,20 +1803,20 @@ function HomePage() {
                                                                     src: post.avatar
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 283,
+                                                                    lineNumber: 284,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                     children: post.author.charAt(0)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 284,
+                                                                    lineNumber: 285,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 282,
+                                                            lineNumber: 283,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1825,7 +1827,7 @@ function HomePage() {
                                                                     children: post.author
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 287,
+                                                                    lineNumber: 288,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1837,24 +1839,24 @@ function HomePage() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                    lineNumber: 288,
+                                                                    lineNumber: 289,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 286,
+                                                            lineNumber: 287,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 281,
+                                                    lineNumber: 282,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                lineNumber: 280,
+                                                lineNumber: 281,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1865,7 +1867,7 @@ function HomePage() {
                                                         children: post.content
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 295,
+                                                        lineNumber: 296,
                                                         columnNumber: 19
                                                     }, this),
                                                     post.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1876,12 +1878,12 @@ function HomePage() {
                                                             className: "w-full object-cover"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 299,
+                                                            lineNumber: 300,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 298,
+                                                        lineNumber: 299,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1897,7 +1899,7 @@ function HomePage() {
                                                                         className: `size-4 ${post.isLiked ? "fill-current" : ""}`
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 310,
+                                                                        lineNumber: 311,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1909,13 +1911,13 @@ function HomePage() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 311,
+                                                                        lineNumber: 312,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                lineNumber: 304,
+                                                                lineNumber: 305,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1928,7 +1930,7 @@ function HomePage() {
                                                                         className: "size-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 321,
+                                                                        lineNumber: 322,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1936,13 +1938,13 @@ function HomePage() {
                                                                         children: post.comments.length > 0 ? `${post.comments.length} Comments` : "Comment"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 322,
+                                                                        lineNumber: 323,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                lineNumber: 315,
+                                                                lineNumber: 316,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1954,7 +1956,7 @@ function HomePage() {
                                                                         className: "size-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 325,
+                                                                        lineNumber: 326,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1962,19 +1964,19 @@ function HomePage() {
                                                                         children: "Share"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 326,
+                                                                        lineNumber: 327,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                lineNumber: 324,
+                                                                lineNumber: 325,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 303,
+                                                        lineNumber: 304,
                                                         columnNumber: 19
                                                     }, this),
                                                     post.isCommentsOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1990,20 +1992,20 @@ function HomePage() {
                                                                                 src: "/professional-user.png"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 335,
+                                                                                lineNumber: 336,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                 children: "JD"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 336,
+                                                                                lineNumber: 337,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 334,
+                                                                        lineNumber: 335,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2022,7 +2024,7 @@ function HomePage() {
                                                                                 }
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 339,
+                                                                                lineNumber: 340,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             commentDrafts[post.id] && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2033,24 +2035,24 @@ function HomePage() {
                                                                                     children: "Post"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                    lineNumber: 353,
+                                                                                    lineNumber: 354,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 352,
+                                                                                lineNumber: 353,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 338,
+                                                                        lineNumber: 339,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                lineNumber: 333,
+                                                                lineNumber: 334,
                                                                 columnNumber: 23
                                                             }, this),
                                                             post.comments.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2065,20 +2067,20 @@ function HomePage() {
                                                                                         src: comment.avatar
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                        lineNumber: 365,
+                                                                                        lineNumber: 366,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                         children: comment.author.charAt(0)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                        lineNumber: 366,
+                                                                                        lineNumber: 367,
                                                                                         columnNumber: 33
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 364,
+                                                                                lineNumber: 365,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2092,7 +2094,7 @@ function HomePage() {
                                                                                                 children: comment.author
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                                lineNumber: 370,
+                                                                                                lineNumber: 371,
                                                                                                 columnNumber: 35
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2103,13 +2105,13 @@ function HomePage() {
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                                lineNumber: 371,
+                                                                                                lineNumber: 372,
                                                                                                 columnNumber: 35
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                        lineNumber: 369,
+                                                                                        lineNumber: 370,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2117,52 +2119,52 @@ function HomePage() {
                                                                                         children: comment.content
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                        lineNumber: 373,
+                                                                                        lineNumber: 374,
                                                                                         columnNumber: 33
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                                lineNumber: 368,
+                                                                                lineNumber: 369,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, comment.id, true, {
                                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                        lineNumber: 363,
+                                                                        lineNumber: 364,
                                                                         columnNumber: 29
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                                lineNumber: 361,
+                                                                lineNumber: 362,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 332,
+                                                        lineNumber: 333,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                lineNumber: 294,
+                                                lineNumber: 295,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, post.id, true, {
                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                        lineNumber: 279,
+                                        lineNumber: 280,
                                         columnNumber: 15
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                            lineNumber: 219,
+                            lineNumber: 220,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
-                            className: "space-y-4 md:col-span-3",
+                            className: "hidden md:block md:col-span-3 space-y-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                                     children: [
@@ -2175,7 +2177,7 @@ function HomePage() {
                                                         className: "size-4 text-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 392,
+                                                        lineNumber: 393,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2183,18 +2185,18 @@ function HomePage() {
                                                         children: "Trending Courses"
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 393,
+                                                        lineNumber: 394,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                lineNumber: 391,
+                                                lineNumber: 392,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 390,
+                                            lineNumber: 391,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2211,7 +2213,7 @@ function HomePage() {
                                                             children: course
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 399,
+                                                            lineNumber: 400,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2219,24 +2221,24 @@ function HomePage() {
                                                             children: "2,345 enrolled"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 400,
+                                                            lineNumber: 401,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, course, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 398,
+                                                    lineNumber: 399,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 396,
+                                            lineNumber: 397,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                    lineNumber: 389,
+                                    lineNumber: 390,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -2250,7 +2252,7 @@ function HomePage() {
                                                         className: "size-4 text-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 410,
+                                                        lineNumber: 411,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2258,18 +2260,18 @@ function HomePage() {
                                                         children: "Featured Jobs"
                                                     }, void 0, false, {
                                                         fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                        lineNumber: 411,
+                                                        lineNumber: 412,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                lineNumber: 409,
+                                                lineNumber: 410,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 408,
+                                            lineNumber: 409,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2286,7 +2288,7 @@ function HomePage() {
                                                             children: job
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 417,
+                                                            lineNumber: 418,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$alfanomeric$2f$edtech$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2294,41 +2296,41 @@ function HomePage() {
                                                             children: "Tech Company • Remote"
                                                         }, void 0, false, {
                                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                            lineNumber: 418,
+                                                            lineNumber: 419,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, job, true, {
                                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                                    lineNumber: 416,
+                                                    lineNumber: 417,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                            lineNumber: 414,
+                                            lineNumber: 415,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                                    lineNumber: 407,
+                                    lineNumber: 408,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                            lineNumber: 387,
+                            lineNumber: 388,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                    lineNumber: 190,
+                    lineNumber: 191,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/alfanomeric/edtech/app/page.tsx",
-                lineNumber: 189,
+                lineNumber: 190,
                 columnNumber: 7
             }, this)
         ]

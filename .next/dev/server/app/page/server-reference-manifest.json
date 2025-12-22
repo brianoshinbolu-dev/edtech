@@ -1,4 +1,65 @@
 {
-  "node": {},
+  "node": {
+    "000655209d7763d01846cd92fea402c071b1c2e726": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getPosts",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "getPosts",
+      "filename": "alfanomeric/edtech/lib/actions.ts"
+    },
+    "60c0abcef481c0b400f35e7d156fbc5e4bdffb7cd6": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createPost",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "createPost",
+      "filename": "alfanomeric/edtech/lib/actions.ts"
+    },
+    "401655876911f1ccef31f826ebb8cbfec74d5e93ce": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "togglePostLike",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "togglePostLike",
+      "filename": "alfanomeric/edtech/lib/actions.ts"
+    },
+    "60ac036fea18aa9c8d8c80eb86d45c06158dbc8233": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "addPostComment",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "addPostComment",
+      "filename": "alfanomeric/edtech/lib/actions.ts"
+    }
+  },
   "edge": {}
 }

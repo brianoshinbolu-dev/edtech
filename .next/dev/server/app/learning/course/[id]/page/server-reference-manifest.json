@@ -1,4 +1,20 @@
 {
-  "node": {},
+  "node": {
+    "00af6a473e9f228f624ac90baaecf353871b19dbea": {
+      "workers": {
+        "app/learning/course/[id]/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/course/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getCourses",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/course/[id]/page": "action-browser"
+      },
+      "exportedName": "getCourses",
+      "filename": "alfanomeric/edtech/lib/actions.ts"
+    }
+  },
   "edge": {}
 }

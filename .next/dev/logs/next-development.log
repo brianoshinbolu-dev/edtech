@@ -1,152 +1,65 @@
-[00:00:25.449] Server  LOG      ✓ Ready in 20.4s
-[00:01:42.725] Server  LOG      ○ Compiling / ...
-[00:02:00.469] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:03.033] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055545309}
-[00:02:17.397] Server  LOG      ○ Compiling /learning ...
-[00:02:21.928] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055564942}
-[00:02:29.000] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055572102}
-[00:02:37.189] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/2/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766055580286}
-[00:10:09.167] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/2 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/2","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056032263}
-[00:10:20.176] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056043153}
-[00:11:28.057] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056111131}
-[00:11:32.572] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056115560}
-[00:11:32.776] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056115870}
-[00:11:36.395] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/network color: rgb(120, 120, 120) color: inherit {"dp":"/network","o":"http://localhost:3000/network","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056119400}
-[00:15:37.842] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056360918}
-[00:15:57.234] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056380194}
-[00:17:25.155] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056468228}
-[00:17:49.320] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766056492215}
-[00:27:38.946] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:39.906] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:27:39.906] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:27:39.907] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057083005}
-[00:28:41.384] Server  LOG      ✓ Compiled in 1298ms
-[00:29:27.669] Server  LOG      ✓ Compiled in 2.9s
-[00:29:32.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:29:36.944] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057197994}
-[00:30:12.297] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057235331}
-[00:30:44.361] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:30:44.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:30:44.361] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:30:44.361] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:30:50.212] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:30:50.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:30:50.212] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:30:50.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:05.275] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/messages color: rgb(120, 120, 120) color: inherit {"dp":"/messages","o":"http://localhost:3000/messages","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057288326}
-[00:31:09.037] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:09.037] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:09.037] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:09.037] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:10.758] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057293840}
-[00:31:12.775] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:12.775] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:12.775] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:12.775] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:15.618] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057298288}
-[00:31:16.858] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:16.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:16.859] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:16.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:18.921] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/messages color: rgb(120, 120, 120) color: inherit {"dp":"/messages","o":"http://localhost:3000/messages","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057302007}
-[00:31:25.257] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:25.257] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:25.257] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:31:25.257] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:27.491] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766057310214}
-[01:08:31.942] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059535001}
-[01:08:33.730] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059536685}
-[01:08:35.976] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059539064}
-[01:08:48.666] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766059551757}
-[01:26:31.621] Server  LOG      ✓ Compiled in 1380ms
-[01:29:06.887] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060769957}
-[01:29:16.675] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060779769}
-[01:29:23.557] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/1/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060786650}
-[01:29:39.645] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1 color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]","o":"http://localhost:3000/learning/course/1","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060802744}
-[01:29:46.104] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766060808988}
-[01:33:21.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/interview","route":"/interview"}
-[01:33:21.580] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/interview color: rgb(120, 120, 120) color: inherit {"dp":"/interview","o":"http://localhost:3000/interview","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766061024678}
-[01:54:09.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/recruitment","route":"/recruitment"}
-[01:54:10.638] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/recruitment color: rgb(120, 120, 120) color: inherit {"dp":"/recruitment","o":"http://localhost:3000/recruitment","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766062273588}
-[01:56:07.550] Server  LOG      ✓ Compiled in 2.1s
-[01:56:36.107] Server  LOG      ✓ Compiled in 810ms
-[01:56:44.544] Server  LOG      ✓ Compiled in 497ms
-[01:57:03.376] Server  LOG      ✓ Compiled in 415ms
-[01:58:12.952] Server  LOG      ✓ Compiled in 826ms
-[01:58:14.653] Server  LOG      ✓ Compiled in 848ms
-[02:30:48.363] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064470929}
-[02:30:51.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064474196}
-[02:30:54.205] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/jobs color: rgb(120, 120, 120) color: inherit {"dp":"/jobs","o":"http://localhost:3000/jobs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064477162}
-[02:32:16.966] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/profile color: rgb(120, 120, 120) color: inherit {"dp":"/profile","o":"http://localhost:3000/profile","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064560001}
-[02:32:30.506] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064573388}
-[02:32:32.458] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064575523}
-[02:32:39.921] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/my-learning color: rgb(120, 120, 120) color: inherit {"dp":"/my-learning","o":"http://localhost:3000/my-learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064583011}
-[02:32:44.478] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning/course/1/learn color: rgb(120, 120, 120) color: inherit {"dp":"/learning/course/[id]/learn","o":"http://localhost:3000/learning/course/1/learn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766064587556}
-[03:13:54.659] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[03:13:54.659] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[03:13:54.659] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[03:13:54.659] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:34.473] Server  LOG      ✓ Ready in 24.2s
+[00:02:10.024] Server  LOG      ○ Compiling / ...
+[00:02:42.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:44.540] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:44.541] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:44.541] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766405072515}
+[00:10:56.574] Server  LOG      ○ Compiling /learning ...
+[00:11:05.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766405574079}
+[00:15:26.444] Server  LOG      ✓ Compiled in 2s
+[00:15:41.071] Server  LOG      ✓ Compiled in 629ms
+[00:15:44.226] Server  LOG      ✓ Compiled in 1302ms
+[00:21:09.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:10.098] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:21:10.098] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/learning","route":"/learning"}
+[00:21:10.098] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/learning color: rgb(120, 120, 120) color: inherit {"dp":"/learning","o":"http://localhost:3000/learning","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766406178849}
+[00:22:10.713] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\[root-of-the-server]__7a5d72ad._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.937] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.938] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_50dab779._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.947] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.957] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.967] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.969] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.972] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.974] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:10.988] Server  ERROR    ⨯ Error: Course not found
+[00:22:15.370] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\[root-of-the-server]__7a5d72ad._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.377] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.379] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_50dab779._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.381] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.383] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.385] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.388] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.390] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.394] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:22:15.399] Server  ERROR    ⨯ Error: Course not found
+[00:25:06.079] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\[root-of-the-server]__7a5d72ad._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.085] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.089] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_50dab779._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.090] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.098] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.099] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.101] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.102] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.104] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:25:06.117] Server  ERROR    ⨯ Error: Course not found
+[00:31:05.613] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\[root-of-the-server]__7a5d72ad._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.618] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.620] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_50dab779._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.622] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.623] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.624] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.625] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.627] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.628] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:05.639] Server  ERROR    ⨯ Error: Course not found
+[00:31:07.310] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\[root-of-the-server]__7a5d72ad._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.313] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.314] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\.next\dev\server\chunks\ssr\56950_next_dist_50dab779._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.316] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.318] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.320] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.321] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.325] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.327] Server  ERROR   C:\Users\BrianOsh\Desktop\alfanomeric\edtech\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:31:07.334] Server  ERROR    ⨯ Error: Course not found

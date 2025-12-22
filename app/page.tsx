@@ -1,9 +1,12 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { TopNav } from "@/components/navigation/top-nav"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/hooks/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+import { getPosts, createPost, togglePostLike, addPostComment } from "@/lib/actions"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
@@ -32,58 +35,25 @@ interface Post {
 }
 
 export default function HomePage() {
-  const [posts, setPosts] = useState<Post[]>([
-    {
-      id: 1,
-      author: "Sarah Johnson",
-      role: "UX Designer at Tech Corp",
-      timeAgo: "2h ago",
-      content:
-        "Just completed an amazing course on Advanced React Patterns! The things you can do with custom hooks and composition patterns are incredible. Highly recommend to anyone looking to level up their React skills.",
-      likes: 24,
-      comments: [
-        {
-          id: 101,
-          author: "Jane Smith",
-          content: "This looks fantastic! Providing accessible experiences is so key.",
-          avatar: "/user-2.jpg",
-          timestamp: "1h ago"
-        }
-      ],
-      avatar: "/user-1.jpg",
-      isLiked: false,
-      isCommentsOpen: false,
-    },
-    {
-      id: 2,
-      author: "Michael Chen",
-      role: "Software Engineer",
-      timeAgo: "4h ago",
-      content: "Building accessible web applications is not just a requirement, it's a responsibility. #a11y #webdev",
-      likes: 15,
-      comments: [],
-      avatar: "/user-2.jpg",
-      isLiked: false,
-      isCommentsOpen: false,
-    },
-    {
-      id: 3,
-      author: "Emily Davis",
-      role: "Product Manager",
-      timeAgo: "6h ago",
-      content: "Excited to announce our new feature launch next week! Stay tuned.",
-      likes: 42,
-      comments: [],
-      avatar: "/user-3.jpg",
-      isLiked: false,
-      isCommentsOpen: false,
-    },
-  ])
-
+  const [posts, setPosts] = useState<Post[]>([])
   const [newPostContent, setNewPostContent] = useState("")
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [commentDrafts, setCommentDrafts] = useState<Record<number, string>>({})
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const { toast } = useToast()
+
+  // Fetch posts on mount
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts()
+        setPosts(data)
+      } catch (error) {
+        console.error("Failed to fetch posts", error)
+      }
+    }
+    fetchPosts()
+  }, [])
 
   const handleImageSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -96,29 +66,48 @@ export default function HomePage() {
     }
   }
 
-  const handleCreatePost = () => {
+  const handleCreatePost = async () => {
     if (!newPostContent.trim() && !selectedImage) return
 
-    const newPost: Post = {
-      id: Date.now(),
-      author: "John Doe",
-      role: "Senior Product Manager",
-      timeAgo: "Just now",
-      content: newPostContent,
-      likes: 0,
-      comments: [],
-      avatar: "/professional-user.png", // Corrected avatar path
-      image: selectedImage || undefined,
-      isLiked: false,
-      isCommentsOpen: false,
-    }
+    try {
+      // Optimistic update
+      const tempId = Date.now()
+      const optimisticPost: Post = {
+        id: tempId,
+        author: "John Doe",
+        role: "Senior Product Manager",
+        timeAgo: "Just now",
+        content: newPostContent,
+        likes: 0,
+        comments: [],
+        avatar: "/professional-user.png",
+        image: selectedImage || undefined,
+        isLiked: false,
+        isCommentsOpen: false,
+      }
+      setPosts([optimisticPost, ...posts])
+      setNewPostContent("")
+      setSelectedImage(null)
 
-    setPosts([newPost, ...posts])
-    setNewPostContent("")
-    setSelectedImage(null)
+      // Server action
+      await createPost(newPostContent, selectedImage || undefined)
+
+      // Re-fetch to ensure sync (optional but safer for IDs)
+      const updatedPosts = await getPosts()
+      setPosts(updatedPosts)
+
+      toast({
+        title: "Post Created",
+        description: "Your post has been shared successfully.",
+      })
+    } catch (error) {
+      console.error("Failed to create post", error)
+      // Revert optimization would go here in a real app
+    }
   }
 
-  const toggleLike = (postId: number) => {
+  const toggleLike = async (postId: number) => {
+    // Optimistic update
     setPosts(
       posts.map((post) => {
         if (post.id === postId) {
@@ -131,6 +120,13 @@ export default function HomePage() {
         return post
       }),
     )
+
+    try {
+      await togglePostLike(postId)
+      // Silent success
+    } catch (error) {
+      console.error("Failed to toggle like", error)
+    }
   }
 
   const toggleComments = (postId: number) => {
@@ -154,10 +150,11 @@ export default function HomePage() {
     }))
   }
 
-  const submitComment = (postId: number) => {
+  const submitComment = async (postId: number) => {
     const text = commentDrafts[postId]
     if (!text?.trim()) return
 
+    // Optimistic update
     const newComment: Comment = {
       id: Date.now(),
       author: "John Doe",
@@ -170,7 +167,7 @@ export default function HomePage() {
       if (post.id === postId) {
         return {
           ...post,
-          comments: [newComment, ...post.comments] // Add new comment to the top
+          comments: [newComment, ...post.comments]
         }
       }
       return post
@@ -180,16 +177,23 @@ export default function HomePage() {
       ...prev,
       [postId]: ""
     }))
+
+    try {
+      await addPostComment(postId, text)
+    } catch (error) {
+      console.error("Failed to add comment", error)
+    }
   }
 
   return (
     <div className="min-h-screen bg-muted/30">
       <TopNav />
+      <Toaster />
 
       <main className="mx-auto max-w-screen-xl px-4 py-6">
         <div className="grid gap-6 md:grid-cols-12">
-          {/* Left Sidebar - Profile Summary */}
-          <aside className="md:col-span-3">
+          {/* Left Sidebar - Profile Summary - Hidden on mobile */}
+          <aside className="hidden md:block md:col-span-3">
             <Card>
               <CardContent className="p-0">
                 <div className="h-16 bg-primary/10" />
@@ -216,7 +220,7 @@ export default function HomePage() {
           </aside>
 
           {/* Main Feed */}
-          <section className="space-y-4 md:col-span-6">
+          <section className="space-y-4 col-span-12 md:col-span-6">
             {/* Post Creation Box */}
             <Card>
               <CardContent className="p-4">
@@ -383,8 +387,8 @@ export default function HomePage() {
             ))}
           </section>
 
-          {/* Right Sidebar */}
-          <aside className="space-y-4 md:col-span-3">
+          {/* Right Sidebar - Hidden on mobile */}
+          <aside className="hidden md:block md:col-span-3 space-y-4">
             {/* Trending Courses */}
             <Card>
               <CardHeader className="pb-3">
@@ -426,3 +430,4 @@ export default function HomePage() {
     </div>
   )
 }
+

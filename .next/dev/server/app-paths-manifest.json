@@ -1,13 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/jobs/page": "app/jobs/page.js",
-  "/learning/course/[id]/learn/page": "app/learning/course/[id]/learn/page.js",
-  "/learning/course/[id]/page": "app/learning/course/[id]/page.js",
   "/learning/page": "app/learning/page.js",
-  "/messages/page": "app/messages/page.js",
-  "/my-learning/page": "app/my-learning/page.js",
-  "/network/page": "app/network/page.js",
-  "/page": "app/page.js",
-  "/profile/page": "app/profile/page.js",
-  "/recruitment/page": "app/recruitment/page.js"
+  "/page": "app/page.js"
 }

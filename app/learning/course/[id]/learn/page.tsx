@@ -188,7 +188,7 @@ export default function LearningPlayerPage({ params }: { params: Promise<{ id: s
                                     <p className="text-muted-foreground">In this lesson, we will cover the fundamentals of {activeLesson.title}. Make sure to have your environment set up as discussed in the previous section.</p>
                                 </div>
 
-                                <div className="flex gap-8 py-4 border-y">
+                                <div className="flex flex-col md:flex-row gap-8 py-4 border-y">
                                     <div className="space-y-1">
                                         <span className="text-sm font-bold block text-foreground">By the numbers</span>
                                         <div className="text-muted-foreground text-sm">

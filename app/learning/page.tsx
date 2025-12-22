@@ -52,15 +52,15 @@ export default function LearningPage() {
         ) : (
           <div className="space-y-12">
             {/* Hero Section */}
-            <div className="relative h-[400px] w-full bg-muted overflow-hidden">
+            <div className="relative w-full bg-muted overflow-hidden flex flex-col md:block">
               {/* Background Image Placeholder */}
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop')] bg-cover bg-center opacity-80">
+              <div className="h-48 md:h-[400px] w-full bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop')] bg-cover bg-center opacity-80 md:absolute md:inset-0">
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/10"></div>
               </div>
 
               {/* Floating Content Card */}
-              <div className="absolute top-12 left-4 md:left-12 lg:left-24 max-w-md bg-card p-6 shadow-lg rounded-lg border">
+              <div className="relative z-10 mx-4 -mt-8 mb-6 md:absolute md:top-12 md:left-12 md:lg:left-24 md:m-0 max-w-md bg-card p-6 shadow-lg rounded-lg border">
                 <h1 className="text-3xl font-bold font-serif mb-3 text-foreground">
                   Learning that gets you
                 </h1>

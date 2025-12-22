@@ -1,5 +1,171 @@
 {
-  "node": {},
+  "node": {
+    "000655209d7763d01846cd92fea402c071b1c2e726": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getPosts",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "getPosts"
+    },
+    "60c0abcef481c0b400f35e7d156fbc5e4bdffb7cd6": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createPost",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "createPost"
+    },
+    "401655876911f1ccef31f826ebb8cbfec74d5e93ce": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "togglePostLike",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "togglePostLike"
+    },
+    "60ac036fea18aa9c8d8c80eb86d45c06158dbc8233": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "addPostComment",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "addPostComment"
+    },
+    "00db1f284a0bb12e219e5277ed1e0d935d608777d3": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getInstructorStats",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "getInstructorStats"
+    },
+    "00af6a473e9f228f624ac90baaecf353871b19dbea": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getCourses",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "getCourses"
+    },
+    "004d4e121f5de9e9c0958f3beee983e1d7681eda3d": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudents",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "getStudents"
+    },
+    "4031591e1eb0bfa952c4baedbf265973504d7efc1e": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getReviews",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "getReviews"
+    },
+    "40dde1a3d7af8dfedf870fa42018fa5245cb1536dd": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createCourse",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "createCourse"
+    },
+    "6077ebe292ecbf31624ec70f97599feb9347873488": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateCourse",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "updateCourse"
+    },
+    "60c31389dec298a8f8a62c15408971634b9dac2fc4": {
+      "workers": {
+        "app/learning/page": {
+          "moduleId": "[project]/alfanomeric/edtech/.next-internal/server/app/learning/page/actions.js { ACTIONS_MODULE0 => \"[project]/alfanomeric/edtech/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateCourseCurriculum",
+          "filename": "alfanomeric/edtech/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/learning/page": "action-browser"
+      },
+      "filename": "alfanomeric/edtech/lib/actions.ts",
+      "exportedName": "updateCourseCurriculum"
+    }
+  },
   "edge": {},
   "encryptionKey": "qLsGhzknox4EAKXrXcWVZGt9NvES9w0S8wy06UDfPHE="
 }

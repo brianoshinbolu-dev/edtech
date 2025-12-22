@@ -1,360 +1,229 @@
 "use client"
 
-import { useState } from "react"
-import { 
-  BarChart3, 
-  BookOpen, 
-  DollarSign, 
-  LayoutDashboard, 
-  MoreVertical, 
-  PenSquare, 
-  Plus, 
-  Search, 
-  TrendingUp, 
-  Users,
-  LineChart as LineChartIcon,
-  Trash2,
-  Edit
-} from "lucide-react"
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
-
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState, useEffect } from "react"
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
+  LayoutDashboard,
+  Menu,
+  BookOpen,
+  MessageSquare,
+  Users,
+  Star
+} from "lucide-react"
 
-// Mock Data
-const revenueData = [
-  { name: "Jan", total: 12000 },
-  { name: "Feb", total: 18500 },
-  { name: "Mar", total: 15000 },
-  { name: "Apr", total: 24000 },
-  { name: "May", total: 32000 },
-  { name: "Jun", total: 38000 },
-  { name: "Jul", total: 45000 },
-  { name: "Aug", total: 52000 },
-]
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { InstructorSidebar } from "./instructor/instructor-sidebar"
+import { OverviewAnalytics } from "./instructor/overview-analytics"
+import { CourseManager } from "./instructor/course-manager"
+import { CommunicationCenter } from "./instructor/communication-center"
+import { StudentList } from "./instructor/students/student-list"
+import { ReviewsManager } from "./instructor/community/reviews-manager"
+import { CourseEditor } from "./instructor/course-editor/course-editor"
+import { DashboardLanding } from "./instructor/dashboard-landing"
+import { CourseCreationWizard, WizardData } from "./instructor/course-creation-wizard"
 
-const topCourses = [
-  {
-    title: "Complete Web Development Bootcamp 2024",
-    students: 1243,
-    revenue: 111827.57,
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "Digital Marketing Masterclass",
-    students: 892,
-    revenue: 71351.08,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "Python for Data Science",
-    students: 534,
-    revenue: 50724.66,
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "UI/UX Design Fundamentals",
-    students: 657,
-    revenue: 45983.43,
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=100&q=80"
-  }
-]
-
-const recentCourses = [
-  {
-    title: "Complete Web Development Bootcamp 2024",
-    description: "Learn HTML, CSS, JavaScript, React, Node.js and more",
-    category: "Development",
-    price: 89.99,
-    students: 1243,
-    revenue: 111827.57,
-    status: "published",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "Digital Marketing Masterclass",
-    description: "Master SEO, Social Media, Email Marketing, and more",
-    category: "Marketing",
-    price: 79.99,
-    students: 892,
-    revenue: 71351.08,
-    status: "published",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "Python for Data Science",
-    description: "Learn Python, Pandas, NumPy, and Machine Learning",
-    category: "Development",
-    price: 94.99,
-    students: 534,
-    revenue: 50724.66,
-    status: "draft",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    title: "UI/UX Design Fundamentals",
-    description: "Create beautiful and user-friendly interfaces",
-    category: "Design",
-    price: 69.99,
-    students: 657,
-    revenue: 45983.43,
-    status: "published",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=100&q=80"
-  }
-]
+import { getInstructorStats, getCourses, getStudents, getReviews } from "@/lib/actions"
+import { Loader2 } from "lucide-react"
 
 export function CourseAdminDashboard() {
+  const [activeTab, setActiveTab] = useState("courses") // Default to courses like Udemy often does, or 'overview'
+  const [stats, setStats] = useState<any>(null)
+  const [courses, setCourses] = useState<any[]>([])
+  const [students, setStudents] = useState<any[]>([])
+  const [reviews, setReviews] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+  const [editingCourse, setEditingCourse] = useState<any>(null)
+
+  // Udemy default "landing" might be a specific view, let's call it "dashboard_landing" if activeTab is 'dashboard' or 'overview'
+  // But wait, the user wants 'Courses' to be the tab...
+  // In our sidebar we have: Courses, Communication, Performance, Tools, Resources.
+  // The 'Landing' view we built ("Jump Into Course Creation") typically appears when you first log in or on "Courses" if empty? 
+  // Let's make "Courses" the default tab but if the user wants the "Dashboard" view from the screenshot, that looked like a "Courses" page overview or a Home.
+  // The screenshot shows "Courses" selected in sidebar.
+  // So the "Jump Into Course Creation" view IS the Courses view when arguably empty or just the main view.
+  // Let's map "courses" to the landing view IF there are no courses? Or just making it the default view as requested "replace formal dashboard".
+  // Actually, the screenshot shows "Courses" active in sidebar.
+  // So let's make `activeTab` default to "courses".
+
+  /* State for Course Creation Wizard */
+  const [isCreatingCourse, setIsCreatingCourse] = useState(false)
+
+  const loadData = async () => {
+    try {
+      const [statsData, coursesData, studentsData, reviewsData] = await Promise.all([
+        getInstructorStats(),
+        getCourses(),
+        getStudents(),
+        getReviews()
+      ])
+      setStats(statsData)
+      setCourses(coursesData)
+      setStudents(studentsData)
+      setReviews(reviewsData)
+    } catch (error) {
+      console.error("Failed to load instructor data", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  // If creating a course, show wizard full screen
+  if (isCreatingCourse) {
+    return (
+      <CourseCreationWizard
+        onExit={() => setIsCreatingCourse(false)}
+        onComplete={(data: WizardData) => {
+          // Here we would normally save to DB
+          // For now we simulate creating a draft and switching to editor
+          const newCourse = {
+            id: Date.now(), // temporary ID
+            title: data.title,
+            category: data.category,
+            status: "draft",
+            price: 0,
+            students: 0,
+            revenue: 0,
+            image: "/placeholder-course.jpg"
+          }
+          setCourses([...courses, newCourse])
+          setIsCreatingCourse(false)
+          setEditingCourse(newCourse)
+        }}
+      />
+    )
+  }
+
+  // If editing a course, show the editor full screen (replacing dashboard)
+  if (editingCourse) {
+    return (
+      <CourseEditor
+        course={editingCourse}
+        onBack={() => {
+          setEditingCourse(null)
+          loadData() // Reload to catch any title changes etc
+        }}
+        onSave={(updated) => {
+          // Update local list for immediate feedback
+          setCourses(courses.map(c => c.id === updated.id ? updated : c))
+          // Also update editing course reference
+          setEditingCourse(updated)
+        }}
+      />
+    )
+  }
+
+  const handleCreateCourseStart = () => {
+    setIsCreatingCourse(true)
+  }
+
+  // For now, let's switch to a 'list' view or similar if we implement that separation.
+  // If this landing IS the courses view, we need a way to actually see the list vs the landing.
+  // Typically Udemy shows the list if you have courses.
+  // The request is "replace the formal dashboard" with "Udemy instructor dashboard".
+  // I will assume for now "Courses" tab shows `DashboardLanding` which has the create button.
+  // But wait, `DashboardLanding` has a create button. The `CourseManager` HAS the list.
+  // Let's render `DashboardLanding` if courses.length === 0, else `CourseManager`?
+  // Or just put `DashboardLanding` as the specific 'overview' and maintain `CourseManager` for the list.
+  // The sidebar in screenshot selects "Courses".
+  // I will use `DashboardLanding` as the main content for "Courses" tab initially or maybe always at top?
+  // Let's use `DashboardLanding` as the view for `courses` tab for now as requested. 
+  // BUT, the user probably still wants to see their list. 
+  // I'll make `DashboardLanding` the view for "courses" and stick the Course List logic inside it or below it?
+  // Simpler: Use `DashboardLanding` for now.
+
+  // actually, if I look at logic below:
+
+
+  const renderContent = () => {
+    if (loading) {
+      return <div className="flex justify-center items-center h-96"><Loader2 className="animate-spin text-primary" /></div>
+    }
+
+    switch (activeTab) {
+      case "courses":
+        return (
+          <div className="space-y-6">
+            <DashboardLanding onCreateCourse={handleCreateCourseStart} />
+
+            {/* I will append the Course List (CourseManager) below it so functionality isn't lost */}
+            {(courses.length > 0) && (
+              <div className="mt-8 border-t pt-8">
+                <h3 className="text-xl font-bold mb-4">Your Courses</h3>
+                <CourseManager
+                  courses={courses}
+                  onCourseCreated={loadData}
+                  onEditCourse={setEditingCourse}
+                />
+              </div>
+            )}
+            {courses.length === 0 && (
+              <div className="hidden">
+                {/* Hidden manager to keep the create sheet accessible if we hook it up later or via other buttons */}
+                <CourseManager
+                  courses={courses}
+                  onCourseCreated={loadData}
+                  onEditCourse={setEditingCourse}
+                />
+              </div>
+            )}
+          </div>
+        )
+      case "performance":
+        return <OverviewAnalytics stats={stats} />
+      case "students":
+        return <StudentList students={students} />
+      case "reviews": // mapped to Resources? No. 
+        // Sidebar: Performance -> OverviewAnalytics
+        // Sidebar: Communication -> CommunicationCenter?
+        // Sidebar: Tools -> ? 
+        // Sidebar: Resources -> ?
+        return <ReviewsManager reviews={reviews} />
+      case "communication":
+        return <CommunicationCenter />
+      default:
+        return <div className="text-center py-20 text-muted-foreground">Component for {activeTab} under construction</div>
+    }
+  }
+
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">Course Admin Dashboard</h2>
-          <p className="text-muted-foreground">Manage your courses and track performance</p>
-        </div>
-        <Button>
-          <Plus className="mr-2 size-4" />
-          New Course
-        </Button>
+    <div className="flex min-h-screen bg-background rounded-lg border overflow-hidden">
+      {/* Desktop Sidebar */}
+      <div className="hidden md:block w-64 shrink-0">
+        <InstructorSidebar
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          className="border-r-0"
+        />
       </div>
 
-      <Tabs defaultValue="dashboard" className="space-y-6">
-        <TabsList>
-          <TabsTrigger value="dashboard" className="gap-2">
-            <LayoutDashboard className="size-4" />
-            Dashboard
-          </TabsTrigger>
-          <TabsTrigger value="courses" className="gap-2">
-            <BookOpen className="size-4" />
-            My Courses
-          </TabsTrigger>
-          <TabsTrigger value="analytics" className="gap-2">
-            <BarChart3 className="size-4" />
-            Analytics
-          </TabsTrigger>
-        </TabsList>
+      {/* Mobile Header & Content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        <header className="md:hidden flex items-center border-b p-4 bg-[#1c1d1f] text-white">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-gray-800"><Menu /></Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="p-0 w-64 border-r-0 bg-[#1c1d1f] text-white">
+              <InstructorSidebar
+                activeTab={activeTab}
+                onTabChange={(tab) => {
+                  setActiveTab(tab)
+                  // Close sheet? wrapper handles it usually or we need state.
+                }}
+              />
+            </SheetContent>
+          </Sheet>
+          <h1 className="ml-4 font-bold">Instructor</h1>
+        </header>
 
-        <TabsContent value="dashboard" className="space-y-6">
-          {/* Key Metrics */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                <DollarSign className="size-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">$279,886.74</div>
-                <p className="text-xs text-green-500 flex items-center font-medium">
-                  <TrendingUp className="mr-1 size-3" />
-                  +12.5% from last month
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Students</CardTitle>
-                <Users className="size-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">3,326</div>
-                <p className="text-xs text-muted-foreground">+180 new students</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Courses</CardTitle>
-                <BookOpen className="size-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">4</div>
-                <p className="text-xs text-muted-foreground">1 draft, 3 published</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Avg. Rating</CardTitle>
-                <LineChartIcon className="size-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">4.6</div>
-                <p className="text-xs text-muted-foreground">+0.2 from last month</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
-            {/* Revenue Overview Chart */}
-            <Card className="lg:col-span-4">
-              <CardHeader>
-                <CardTitle>Revenue Overview</CardTitle>
-              </CardHeader>
-              <CardContent className="pl-2">
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={revenueData}>
-                      <XAxis 
-                        dataKey="name" 
-                        stroke="#888888" 
-                        fontSize={12} 
-                        tickLine={false} 
-                        axisLine={false} 
-                      />
-                      <YAxis
-                        stroke="#888888"
-                        fontSize={12}
-                        tickLine={false}
-                        axisLine={false}
-                        tickFormatter={(value) => `$${value}`}
-                      />
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: "hsl(var(--background))", 
-                          borderColor: "hsl(var(--border))" 
-                        }}
-                      />
-                      <Line
-                        type="monotone"
-                        dataKey="total"
-                        stroke="hsl(var(--primary))"
-                        strokeWidth={2}
-                        dot={{ r: 4, fill: "hsl(var(--primary))" }}
-                        activeDot={{ r: 6 }}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Top Performing Courses */}
-            <Card className="lg:col-span-3">
-              <CardHeader>
-                <CardTitle>Top Performing Courses</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  {topCourses.map((course, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="size-12 rounded-lg object-cover"
-                      />
-                      <div className="flex-1 space-y-1">
-                        <p className="text-sm font-medium leading-none line-clamp-1">{course.title}</p>
-                        <p className="text-xs text-muted-foreground">{course.students.toLocaleString()} students</p>
-                      </div>
-                      <div className="font-medium">
-                        ${course.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Recent Courses Table */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Courses</CardTitle>
-              <CardDescription>
-                A list of your recent courses including their status and performance.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Course</TableHead>
-                    <TableHead>Category</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead>Students</TableHead>
-                    <TableHead className="text-right">Revenue</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {recentCourses.map((course, i) => (
-                    <TableRow key={i}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          <img 
-                            src={course.image} 
-                            alt={course.title} 
-                            className="size-10 rounded-lg object-cover"
-                          />
-                          <div className="flex flex-col gap-0.5">
-                            <span className="font-medium line-clamp-1 max-w-[200px]">{course.title}</span>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>{course.category}</TableCell>
-                      <TableCell>${course.price}</TableCell>
-                      <TableCell>{course.students}</TableCell>
-                      <TableCell className="text-right">${course.revenue.toLocaleString()}</TableCell>
-                      <TableCell>
-                        <Badge variant={course.status === "published" ? "default" : "secondary"}>
-                          {course.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <Button variant="ghost" size="icon" className="size-8">
-                            <Edit className="size-4" />
-                          </Button>
-                          <Button variant="ghost" size="icon" className="size-8 text-destructive">
-                            <Trash2 className="size-4" />
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="courses">
-            <Card>
-                <CardHeader>
-                    <CardTitle>My Courses</CardTitle>
-                    <CardDescription>Manage your course catalog</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="flex justify-center py-8 text-muted-foreground">
-                        My Courses Content (To Be Implemented)
-                    </div>
-                </CardContent>
-            </Card>
-        </TabsContent>
-
-        <TabsContent value="analytics">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Detailed Analytics</CardTitle>
-                    <CardDescription>Deep dive into your course performance</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="flex justify-center py-8 text-muted-foreground">
-                        Analytics Content (To Be Implemented)
-                    </div>
-                </CardContent>
-            </Card>
-        </TabsContent>
-      </Tabs>
+        <main className="flex-1 p-6 overflow-y-auto bg-gray-50">
+          {renderContent()}
+        </main>
+      </div>
     </div>
   )
 }
